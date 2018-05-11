@@ -3,10 +3,18 @@
 require __DIR__ . '/../../vendor/autoload.php';
 
 use Cryptocurrency\Task1\CoinMarket;
+use Cryptocurrency\Task1\Bitcoin;
+use Cryptocurrency\Task1\Ethereum;
+use Cryptocurrency\Task1\Dogecoin;
 use Cryptocurrency\Task3\MarketHtmlPresenter;
 
 // Fill in your market with currencies and use your presenter to show data here:
 $market = new CoinMarket();
+
+$market->addCurrency(new Bitcoin(9876));
+$market->addCurrency(new Ethereum(543));
+$market->addCurrency(new Dogecoin(210));
+
 $marketPresenter = new MarketHtmlPresenter();
 $presentation = $marketPresenter->present($market);
 
